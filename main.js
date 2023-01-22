@@ -74,6 +74,57 @@ function displayTasks() {
     const task = tasks[i]
 
     // Create the task list item
-    const taskItem = document
+    const taskItem = document.createElement("li")
+    taskItem.innerHTML = `
+    <h3>${task.title}</h3>
+    <p>${task.description}</p>
+    <p>Expected Completion Date ${task.date}</p>
+    `
+
+    // Create update and delete buttons
+    const updateBtn = document.createElement("button")
+    updateBtn.innerHTML = "Update"
+    updateBtn.onclick = () => {
+      updateTask(i)
+    }
+    taskItem.appendChild(updateBtn)
+
+    const deleteBtn = document.createElement("button")
+    deleteBtn.innerHTML = "Delete"
+    deleteBtn.onclick = () => {
+      deleteTask(i)
+    }
+    taskItem.appendChild(deleteBtn)
+
+    const completeBtn = document.createElement("button")
+    completeBtn.innerHTML = "Mark as completed"
+    taskItem.onclick = () => {
+      markAsCompleted(i)
+    }
+    taskItem.appendChild(completeBtn)
+
+    // Append the task item to the appropriate section
+    if (!task.completed) {
+      if (task.date < new Date().toISOString().slice(0, 10)) {
+        lateTasks.appendChild(taskItem)
+      } else {
+        incompleteTasks.appendChild(taskItem)
+      }
+    } else {
+      completedTasks.appendChild(taskItem)
+    }
+  }
+  // End of for loop
+
+  if (incompleteTasks.children.length === 0) {
+    incompleteTasks.innerHTML = "<p>No Incomplete Tasks</p>"
+  }
+
+  if (completedTasks.children.length === 0) {
+    completedTasks.innerHTML = "<p>No Completed Tasks</p>"
+  }
+
+  if (lateTasks.children.length === 0) {
+    lateTasks.innerHTML = "<p>No Late Tasks</p>"
   }
 }
