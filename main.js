@@ -128,3 +128,9 @@ function displayTasks() {
     lateTasks.innerHTML = "<p>No Late Tasks</p>"
   }
 }
+
+// Add the submit event to the form
+addTaskForm.addEventListener("submit", addTask)
+
+// Display the tasks when the page loads
+displayTasks()
