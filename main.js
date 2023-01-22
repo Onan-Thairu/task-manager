@@ -1,5 +1,5 @@
 const addTaskForm = document.querySelector("#add-task-form")
-const incompleteTasks = document.querySelector("#incomplete-tasks")
+const incompleteTasks = document.querySelector("#uncompleted-tasks")
 const completedTasks = document.querySelector("#completed-tasks")
 const lateTasks = document.querySelector("#late-tasks")
 
