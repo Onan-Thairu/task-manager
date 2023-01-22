@@ -33,3 +33,18 @@ function addTask(event) {
   console.log(tasks)
 
 }
+
+function updateTask(taskIndex) {
+  // Get the task data from the form
+  const title = document.querySelector("#title").value
+  const description = document.querySelector("#description").value
+  const date = document.querySelector("#date").value
+
+  // Update the task
+  tasks[taskIndex].title = title
+  tasks[taskIndex].description = description
+  tasks[taskIndex].date = date
+
+  // Clear the form
+  addTaskForm.reset()
+}
