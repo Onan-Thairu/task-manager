@@ -47,4 +47,20 @@ function updateTask(taskIndex) {
 
   // Clear the form
   addTaskForm.reset()
+
+  // Display the tasks
+  displayTasks()
+}
+
+function deleteTask(taskIndex) {
+  // Confirm before deleting task
+  if (confirm("Are you sure you want to delete this task?")) {
+    tasks.splice(taskIndex, 1)
+    displayTasks()
+  }
+}
+
+function markAsCompleted(taskIndex) {
+  tasks[taskIndex].completed = true
+  displayTasks()
 }
