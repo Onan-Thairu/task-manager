@@ -1,5 +1,5 @@
 const addTaskForm = document.querySelector("#add-task-form")
-const incompleteTasks = document.querySelector("#uncompleted-tasks")
+const incompleteTasks = document.querySelector("#incomplete-tasks")
 const completedTasks = document.querySelector("#completed-tasks")
 const lateTasks = document.querySelector("#late-tasks")
 
@@ -16,9 +16,9 @@ function addTask(event) {
 
   // Create task object with a default of completed: false
   const task = {
-    title: title,
-    description: description,
-    date: date,
+    title: title.value,
+    description: description.value,
+    date: date.value,
     completed: false
   }
 
@@ -26,12 +26,10 @@ function addTask(event) {
   tasks.push(task)
 
   // Clear the form on submit
-  addTaskForm.requestFullscreen()
+  addTaskForm.reset()
 
   // Display the tasks
-  // displayTasks()
-  console.log(tasks)
-
+  displayTasks()
 }
 
 function updateTask(taskIndex) {
@@ -78,7 +76,7 @@ function displayTasks() {
     taskItem.innerHTML = `
     <h3>${task.title}</h3>
     <p>${task.description}</p>
-    <p>Expected Completion Date ${task.date}</p>
+    <p>Expected Completion Date: ${task.date}</p>
     `
 
     // Create update and delete buttons
