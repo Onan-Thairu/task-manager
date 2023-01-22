@@ -1,5 +1,5 @@
 const addTaskForm = document.querySelector("#add-task-form")
-const uncompletedTasks = document.querySelector("#uncompleted-tasks")
+const incompleteTasks = document.querySelector("#incomplete-tasks")
 const completedTasks = document.querySelector("#completed-tasks")
 const lateTasks = document.querySelector("#late-tasks")
 
@@ -63,4 +63,17 @@ function deleteTask(taskIndex) {
 function markAsCompleted(taskIndex) {
   tasks[taskIndex].completed = true
   displayTasks()
+}
+
+function displayTasks() {
+  incompleteTasks.innerHTML = ""
+  completedTasks.innerHTML = ""
+  lateTasks.innerHTML = ""
+
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i]
+
+    // Create the task list item
+    const taskItem = document
+  }
 }
