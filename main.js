@@ -95,7 +95,8 @@ function displayTasks() {
     taskItem.appendChild(deleteBtn)
 
     const completeBtn = document.createElement("button")
-    completeBtn.innerHTML = "Mark as completed"
+    task.completed ? completeBtn.innerHTML = `<strike>Completed</strike>` : completeBtn.innerHTML = "Mark as completed"
+
     taskItem.onclick = () => {
       markAsCompleted(i)
     }
