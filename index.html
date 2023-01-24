@@ -14,8 +14,10 @@
     <div class="logo">
       <h1>Task Manager</h1>
     </div>
-
-    <div>
+    <div class="add-task-icon">
+      <ion-icon name="add-circle" size="large" id="task-icon"></ion-icon>
+    </div>
+    <div class="task-form hidden">
       <form id="add-task-form">
         <!-- <label for="title">Title:</label> -->
         <input type="text" id="title" placeholder="Enter title" required><br>
@@ -30,21 +32,28 @@
       </form>
     </div>
     
-    <div class="incomplete-container">
+    <div class="incomplete-container task-container">
       <h2>Incomplete Tasks</h2>
       <ul id="incomplete-tasks"></ul>
     </div>
 
-    <div class="completed-container">
+    <div class="completed-container task-container">
       <h2>Completed Tasks</h2>
       <ul id="completed-tasks"></ul>
     </div>
 
-    <div class="late-tasks-container">
+    <div class="late-tasks-container task-container">
       <h2>Late Tasks</h2>
       <ul id="late-tasks"></ul>
     </div>
+    <div class="delete-all">
+      <button id="delete-all-btn">Delete All</button>
+      <!-- <ion-icon name="trash-outline"></ion-icon> -->
+    </div>
   </div>
+  
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="./main.js"></script>
 </body>
 </html>

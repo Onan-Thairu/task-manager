@@ -6,18 +6,29 @@
 }
 .container {
   /* background-color: rgb(178, 214, 245); */
-  width: 80vw;
+  width: 60vw;
   margin: 2em auto;
+  text-align: center;
 }
-
+.logo {
+  margin-bottom: 3em;
+}
+#task-icon {
+  color: #004466;
+  margin-bottom: 1em;
+}
+/* .incomplete-container {
+  background-color: aqua;
+} */
 h1, h2 {
   text-align: center;
   color: #004466;
+  margin-bottom: .8em;
 }
 
 form {
   margin: 20px auto;
-  width: 80%;
+  width: 70%;
   padding: 20px;
   background-color: #00ffa2;
   border-radius: 10px;
@@ -77,7 +88,7 @@ button {
 
 ul {
   list-style-type: none;
-  margin: 0;
+  margin-bottom: .5em;
   padding: 0;
 }
 
@@ -100,4 +111,19 @@ li p {
 
 li button {
   margin-left: 1em;
+}
+
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+#delete-all-btn {
+  background-color: red;
+}
+
+.fall {
+  transform: translateX(8rem);
+  opacity: 0;
 }

@@ -2,6 +2,10 @@ const addTaskForm = document.querySelector("#add-task-form")
 const incompleteTasks = document.querySelector("#incomplete-tasks")
 const completedTasks = document.querySelector("#completed-tasks")
 const lateTasks = document.querySelector("#late-tasks")
+const taskIcon = document.querySelector("#task-icon")
+const divTaskForm = document.querySelector(".task-form")
+const divDeleteAll = document.querySelector(".delete-all")
+const deleteAllBtn = document.querySelector("#delete-all-btn")
 
 let tasks = []
 
@@ -28,11 +32,23 @@ function addTask(event) {
   // Clear the form on submit
   addTaskForm.reset()
 
+  divTaskForm.classList.add("hidden")
+  taskIcon.classList.remove("hidden")
+
   // Display the tasks
   displayTasks()
 }
 
+function displayAddTaskForm(){
+  divTaskForm.classList.remove("hidden")
+  taskIcon.classList.add("hidden")
+}
+
+taskIcon.addEventListener("click", displayAddTaskForm)
+
 function updateTask(taskIndex) {
+  // Display task form
+  displayAddTaskForm()
   // Get the task data from the form
   const title = document.querySelector("#title").value
   const description = document.querySelector("#description").value
@@ -42,6 +58,7 @@ function updateTask(taskIndex) {
   tasks[taskIndex].title = title
   tasks[taskIndex].description = description
   tasks[taskIndex].date = date
+  tasks[taskIndex].completed = false
 
   // Clear the form
   addTaskForm.reset()
@@ -57,6 +74,16 @@ function deleteTask(taskIndex) {
     displayTasks()
   }
 }
+
+function deleteAll() {
+  // Confirm before deleting task
+  if (confirm("This action cannot be undone. Are you sure you want to continue?")) {
+    tasks = []
+    displayTasks()
+  }
+}
+
+deleteAllBtn.addEventListener("click", deleteAll)
 
 function markAsCompleted(taskIndex) {
   tasks[taskIndex].completed = true
@@ -126,6 +153,9 @@ function displayTasks() {
   if (lateTasks.children.length === 0) {
     lateTasks.innerHTML = "<p>No Late Tasks</p>"
   }
+
+  tasks.length === 0 ? divDeleteAll.classList.add("hidden"): divDeleteAll.classList.remove("hidden")
+
 }
 
 // Add the submit event to the form
