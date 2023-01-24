@@ -32,6 +32,7 @@ function addTask(event) {
   // Clear the form on submit
   addTaskForm.reset()
 
+  // Hide add task form
   divTaskForm.classList.add("hidden")
   taskIcon.classList.remove("hidden")
 
@@ -54,6 +55,10 @@ function updateTask(taskIndex) {
   document.querySelector("#title").value = tasks[taskIndex].title
   document.querySelector("#description").value = tasks[taskIndex].description
   document.querySelector("#date").value = tasks[taskIndex].date
+  // tasks[taskIndex].completed = false
+
+  // Delete the task you want to update from the array
+  tasks.splice(taskIndex, 1)
   
 
   // // Get the task data from the form
@@ -72,7 +77,7 @@ function updateTask(taskIndex) {
   // addTaskForm.reset()
 
   // Display the tasks
-  // displayTasks()
+  displayTasks()
 }
 
 function deleteTask(taskIndex) {
@@ -131,14 +136,13 @@ function displayTasks() {
 
     const completeBtn = document.createElement("button")
     task.completed ? completeBtn.innerHTML = `<strike>Completed</strike>` : completeBtn.innerHTML = "Mark as completed"
-
-    taskItem.onclick = () => {
+    completeBtn.onclick = () => {
       markAsCompleted(i)
     }
     taskItem.appendChild(completeBtn)
 
     // Append the task item to the appropriate section
-    if (!task.completed) {
+    if (task.completed === false) {
       if (task.date < new Date().toISOString().slice(0, 10)) {
         lateTasks.appendChild(taskItem)
       } else {
