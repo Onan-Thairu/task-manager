@@ -6,7 +6,7 @@
 }
 .container {
   /* background-color: rgb(178, 214, 245); */
-  width: 60vw;
+  width: 70vw;
   margin: 2em auto;
   text-align: center;
 }
@@ -29,7 +29,7 @@ h1, h2 {
 
 form {
   margin: 20px auto;
-  width: 70%;
+  width: 80%;
   padding: 20px;
   background-color: #00ffa2;
   border-radius: 10px;
@@ -127,4 +127,22 @@ li button {
 .fall {
   transform: translateX(8rem);
   opacity: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    /* background-color: rgb(178, 214, 245); */
+    width: 90vw;
+    margin: 2em auto;
+    text-align: center;
+  }
+
+  form {
+    margin: 20px auto;
+    width: 90%;
+    padding: 20px;
+    background-color: #00ffa2;
+    border-radius: 10px;
+  }
+
 }
