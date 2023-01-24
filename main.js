@@ -55,26 +55,9 @@ function updateTask(taskIndex) {
   document.querySelector("#title").value = tasks[taskIndex].title
   document.querySelector("#description").value = tasks[taskIndex].description
   document.querySelector("#date").value = tasks[taskIndex].date
-  // tasks[taskIndex].completed = false
 
   // Delete the task you want to update from the array
   tasks.splice(taskIndex, 1)
-  
-
-  // // Get the task data from the form
-  // const title = document.querySelector("#title").value
-  // const description = document.querySelector("#description").value
-  // const date = document.querySelector("#date").value
-
-  // // Update the task
-  // tasks[taskIndex].title = title
-  // tasks[taskIndex].description = description
-  // tasks[taskIndex].date = date
-  // tasks[taskIndex].completed = false
-  
-
-  // Clear the form
-  // addTaskForm.reset()
 
   // Display the tasks
   displayTasks()
@@ -119,26 +102,22 @@ function displayTasks() {
     <p>Expected Completion Date: ${task.date}</p>
     `
 
-    // Create update and delete buttons
+    // Create update button
     const updateBtn = document.createElement("button")
     updateBtn.innerHTML = "Update"
-    updateBtn.onclick = () => {
-      updateTask(i)
-    }
+    updateBtn.onclick = () => updateTask(i)
     taskItem.appendChild(updateBtn)
 
+    // Create delete button
     const deleteBtn = document.createElement("button")
     deleteBtn.innerHTML = "Delete"
-    deleteBtn.onclick = () => {
-      deleteTask(i)
-    }
+    deleteBtn.onclick = () => deleteTask(i)
     taskItem.appendChild(deleteBtn)
 
+    // Create markAsComplete button
     const completeBtn = document.createElement("button")
     task.completed ? completeBtn.innerHTML = `<strike>Completed</strike>` : completeBtn.innerHTML = "Mark as completed"
-    completeBtn.onclick = () => {
-      markAsCompleted(i)
-    }
+    completeBtn.onclick = () => markAsCompleted(i)
     taskItem.appendChild(completeBtn)
 
     // Append the task item to the appropriate section
