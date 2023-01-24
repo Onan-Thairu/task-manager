@@ -13,13 +13,14 @@
 .logo {
   margin-bottom: 3em;
 }
+
 #task-icon {
   color: #004466;
   margin-bottom: 1em;
 }
-/* .incomplete-container {
-  background-color: aqua;
-} */
+.add-task-icon {
+  margin-bottom: 1em;
+}
 h1, h2 {
   text-align: center;
   color: #004466;

@@ -49,22 +49,30 @@ taskIcon.addEventListener("click", displayAddTaskForm)
 function updateTask(taskIndex) {
   // Display task form
   displayAddTaskForm()
-  // Get the task data from the form
-  const title = document.querySelector("#title").value
-  const description = document.querySelector("#description").value
-  const date = document.querySelector("#date").value
 
-  // Update the task
-  tasks[taskIndex].title = title
-  tasks[taskIndex].description = description
-  tasks[taskIndex].date = date
-  tasks[taskIndex].completed = false
+  // Fill form with task data
+  document.querySelector("#title").value = tasks[taskIndex].title
+  document.querySelector("#description").value = tasks[taskIndex].description
+  document.querySelector("#date").value = tasks[taskIndex].date
+  
+
+  // // Get the task data from the form
+  // const title = document.querySelector("#title").value
+  // const description = document.querySelector("#description").value
+  // const date = document.querySelector("#date").value
+
+  // // Update the task
+  // tasks[taskIndex].title = title
+  // tasks[taskIndex].description = description
+  // tasks[taskIndex].date = date
+  // tasks[taskIndex].completed = false
+  
 
   // Clear the form
-  addTaskForm.reset()
+  // addTaskForm.reset()
 
   // Display the tasks
-  displayTasks()
+  // displayTasks()
 }
 
 function deleteTask(taskIndex) {
